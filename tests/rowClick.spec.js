@@ -1,16 +1,9 @@
-/* eslint-disable no-console,func-names,react/no-multi-comp */
-const expect = require('expect.js');
-const Table = require('../');
-const React = require('react');
-const ReactDOM = require('react-dom');
-const $ = require('jquery');
-const { Simulate } = require('react-addons-test-utils');
+/* eslint-disable no-undef */
+import React from 'react';
+import Table from '../';
+import { mount } from 'enzyme';
 
 describe('click table row', () => {
-  const div = document.createElement('div');
-  document.body.appendChild(div);
-  let node;
-
   const columns = [{
     title: 'Name',
     dataIndex: 'name',
@@ -39,51 +32,41 @@ describe('click table row', () => {
     address: 'I am a',
   }];
 
-  const spy = {
-    callCount: 0,
-    callArgs: null,
-  };
-  const onRowClick = (...args) => {
-    spy.callArgs = args;
-    spy.callCount += 1;
-  };
-  const onRowDoubleClick = (...args) => {
-    spy.callArgs = args;
-    spy.callCount += 1;
-  };
+  let wrapper;
+  let onRowClick;
+  let onRowDoubleClick;
 
   beforeEach(() => {
-    ReactDOM.render(
+    onRowClick = jest.fn();
+    onRowDoubleClick = jest.fn();
+    wrapper = mount(
       <Table
         columns={columns}
         data={data}
         onRowClick={onRowClick}
         onRowDoubleClick={onRowDoubleClick}
-      />,
-      div
+      />
     );
-    node = $(div);
   });
 
-  afterEach(() => {
-    ReactDOM.unmountComponentAtNode(div);
-    spy.callArgs = null;
-    spy.callCount = 0;
-  });
 
   it('click', () => {
-    Simulate.click(node.find('tbody tr:first')[0]);
-    expect(spy.callCount).to.be(1);
-    expect(spy.callArgs[0]).to.be(data[0]);
-    expect(spy.callArgs[1]).to.be(0);
-    expect(spy.callArgs[2].type).to.be('click');
+    const row = wrapper.find('tbody tr');
+    row.simulate('click');
+    const args = onRowClick.mock.calls[0];
+    expect(onRowClick).toHaveBeenCalledTimes(1);
+    expect(args[0]).toBe(data[0]);
+    expect(args[1]).toBe(0);
+    expect(args[2].type).toBe('click');
   });
 
   it('double click', () => {
-    Simulate.doubleClick(node.find('tbody tr:first')[0]);
-    expect(spy.callCount).to.be(1);
-    expect(spy.callArgs[0]).to.be(data[0]);
-    expect(spy.callArgs[1]).to.be(0);
-    expect(spy.callArgs[2].type).to.be('doubleclick');
+    const row = wrapper.find('tbody tr');
+    row.simulate('doubleclick');
+    const args = onRowDoubleClick.mock.calls[0];
+    expect(onRowDoubleClick).toHaveBeenCalledTimes(1);
+    expect(args[0]).toBe(data[0]);
+    expect(args[1]).toBe(0);
+    expect(args[2].type).toBe('doubleclick');
   });
 });

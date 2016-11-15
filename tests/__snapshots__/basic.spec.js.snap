@@ -1,0 +1,260 @@
+exports[`table renders correctly 1`] = `
+<div
+  class="rc-table rc-table-scroll-position-left">
+  <div
+    class="rc-table-content">
+    <div
+      class="">
+      <span>
+        <div
+          class="rc-table-body"
+          style="overflow-x:auto;">
+          <table
+            class="rc-table-fixed">
+            <colgroup>
+              <col
+                style="width:100px;min-width:100px;" />
+              <col
+                style="width:100px;min-width:100px;" />
+              <col
+                style="width:200px;min-width:200px;" />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead
+              class="rc-table-thead">
+              <tr>
+                <th
+                  class=""
+                  colspan="2">
+                  表头1
+                </th>
+                <th
+                  class="">
+                  表头3
+                </th>
+                <th
+                  class="">
+                  operation
+                </th>
+                <th
+                  class="">
+                  number
+                </th>
+                <th
+                  class="">
+                  zero
+                </th>
+                <th
+                  class="">
+                  empty string
+                </th>
+                <th
+                  class="">
+                  string
+                </th>
+                <th
+                  class="">
+                  false
+                </th>
+                <th
+                  class="">
+                  Array
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="rc-table-tbody">
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class=""
+                  colspan="2">
+                  123
+                </td>
+                <td
+                  class=""
+                  rowspan="2" />
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作
+                  </a>
+                </td>
+                <td
+                  class="">
+                  123
+                </td>
+                <td
+                  class="">
+                  0
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  text
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作1
+                  </a>
+                  <a
+                    href="#">
+                    操作2
+                  </a>
+                </td>
+              </tr>
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="">
+                  cdd
+                </td>
+                <td
+                  class="">
+                  edd
+                </td>
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作
+                  </a>
+                </td>
+                <td
+                  class="">
+                  123
+                </td>
+                <td
+                  class="">
+                  0
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  text
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作1
+                  </a>
+                  <a
+                    href="#">
+                    操作2
+                  </a>
+                </td>
+              </tr>
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="">
+                  1333
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  eee
+                </td>
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作
+                  </a>
+                </td>
+                <td
+                  class="">
+                  123
+                </td>
+                <td
+                  class="">
+                  0
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  text
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作1
+                  </a>
+                  <a
+                    href="#">
+                    操作2
+                  </a>
+                </td>
+              </tr>
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="" />
+                <td
+                  class="" />
+                <td
+                  class="" />
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作
+                  </a>
+                </td>
+                <td
+                  class="">
+                  123
+                </td>
+                <td
+                  class="">
+                  0
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  text
+                </td>
+                <td
+                  class="" />
+                <td
+                  class="">
+                  <a
+                    href="#">
+                    操作1
+                  </a>
+                  <a
+                    href="#">
+                    操作2
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+`;

@@ -1,6 +1,5 @@
-/* eslint-disable no-console,func-names,react/no-multi-comp,indent */
-const expect = require('expect.js');
-const ColumnManager = require('../src/ColumnManager');
+/* eslint-disable no-undef,indent */
+import ColumnManager from '../src/ColumnManager';
 
 describe('ColumnManager', () => {
   describe('includesCustomRender', () => {
@@ -13,7 +12,7 @@ describe('ColumnManager', () => {
         },
       ];
 
-      expect(ColumnManager.includesCustomRender(columns)).to.be(true);
+      expect(ColumnManager.includesCustomRender(columns)).toBe(true);
     });
 
     it('return false', () => {
@@ -24,7 +23,7 @@ describe('ColumnManager', () => {
         },
       ];
 
-      expect(ColumnManager.includesCustomRender(columns)).to.be(false);
+      expect(ColumnManager.includesCustomRender(columns)).toBe(false);
     });
   });
 
@@ -61,7 +60,7 @@ describe('ColumnManager', () => {
       const columnManager = new ColumnManager(columns);
       const groupedColumns = columnManager.groupedColumns();
 
-      expect(groupedColumns).to.eql([
+      expect(groupedColumns).toEqual([
         { title: '表头A', className: 'title-a', dataIndex: 'a', key: 'a', rowSpan: 4 },
         { title: '表头B', className: 'title-b', dataIndex: 'b', key: 'b', rowSpan: 4 },
         { title: '表头C', className: 'title-c', children:

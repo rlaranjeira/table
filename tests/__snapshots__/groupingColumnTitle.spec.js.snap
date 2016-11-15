@@ -1,0 +1,471 @@
+exports[`Table with grouping columns group columns 1`] = `
+<div
+  class="rc-table rc-table-scroll-position-left">
+  <div
+    class="rc-table-content">
+    <div
+      class="">
+      <span>
+        <div
+          class="rc-table-body"
+          style="overflow-x:auto;">
+          <table
+            class="rc-table-fixed">
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead
+              class="rc-table-thead">
+              <tr>
+                <th
+                  class="title-a"
+                  rowspan="4">
+                  表头A
+                </th>
+                <th
+                  class="title-b"
+                  rowspan="4">
+                  表头B
+                </th>
+                <th
+                  class="title-c"
+                  colspan="4">
+                  表头C
+                </th>
+                <th
+                  class="title-j"
+                  colspan="2">
+                  表头J
+                </th>
+                <th
+                  class="title-m"
+                  rowspan="4">
+                  表头M
+                </th>
+              </tr>
+              <tr>
+                <th
+                  class="title-d"
+                  rowspan="3">
+                  表头D
+                </th>
+                <th
+                  class="title-e"
+                  colspan="3">
+                  表头E
+                </th>
+                <th
+                  class="title-k"
+                  rowspan="3">
+                  表头K
+                </th>
+                <th
+                  class="title-l"
+                  rowspan="3">
+                  表头L
+                </th>
+              </tr>
+              <tr>
+                <th
+                  class="title-f"
+                  rowspan="2">
+                  表头F
+                </th>
+                <th
+                  class="title-g"
+                  colspan="2">
+                  表头G
+                </th>
+              </tr>
+              <tr>
+                <th
+                  class="title-h">
+                  表头H
+                </th>
+                <th
+                  class="title-i">
+                  表头I
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="rc-table-tbody">
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="title-a">
+                  <span
+                    class="rc-table-row-indent indent-level-0"
+                    style="padding-left:0px;" />
+                  a1
+                </td>
+                <td
+                  class="title-b">
+                  b1
+                </td>
+                <td
+                  class="title-d">
+                  c1
+                </td>
+                <td
+                  class="title-f">
+                  d1
+                </td>
+                <td
+                  class="title-h">
+                  e1
+                </td>
+                <td
+                  class="title-i">
+                  f1
+                </td>
+                <td
+                  class="title-k">
+                  g1
+                </td>
+                <td
+                  class="title-l">
+                  h1
+                </td>
+                <td
+                  class="title-m">
+                  i1
+                </td>
+              </tr>
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="title-a">
+                  <span
+                    class="rc-table-row-indent indent-level-0"
+                    style="padding-left:0px;" />
+                  a2
+                </td>
+                <td
+                  class="title-b">
+                  b2
+                </td>
+                <td
+                  class="title-d">
+                  c2
+                </td>
+                <td
+                  class="title-f">
+                  d2
+                </td>
+                <td
+                  class="title-h">
+                  e2
+                </td>
+                <td
+                  class="title-i">
+                  f2
+                </td>
+                <td
+                  class="title-k">
+                  g2
+                </td>
+                <td
+                  class="title-l">
+                  h2
+                </td>
+                <td
+                  class="title-m">
+                  i2
+                </td>
+              </tr>
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="title-a">
+                  <span
+                    class="rc-table-row-indent indent-level-0"
+                    style="padding-left:0px;" />
+                  a3
+                </td>
+                <td
+                  class="title-b">
+                  b3
+                </td>
+                <td
+                  class="title-d">
+                  c3
+                </td>
+                <td
+                  class="title-f">
+                  d3
+                </td>
+                <td
+                  class="title-h">
+                  e3
+                </td>
+                <td
+                  class="title-i">
+                  f3
+                </td>
+                <td
+                  class="title-k">
+                  g3
+                </td>
+                <td
+                  class="title-l">
+                  h3
+                </td>
+                <td
+                  class="title-m">
+                  i3
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table with grouping columns work with fixed columns 1`] = `
+<div
+  class="rc-table rc-table-scroll-position-left">
+  <div
+    class="rc-table-content">
+    <div
+      class="rc-table-fixed-left">
+      <span>
+        <div
+          class="rc-table-body-outer">
+          <div
+            class="rc-table-body-inner">
+            <table
+              class="rc-table-fixed">
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="rc-table-thead">
+                <tr>
+                  <th
+                    class="title-a"
+                    rowspan="2">
+                    表头A
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="rc-table-tbody">
+                <tr
+                  class="rc-table-row  rc-table-row-level-0">
+                  <td
+                    class="title-a">
+                    <span
+                      class="rc-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    a1
+                  </td>
+                </tr>
+                <tr
+                  class="rc-table-row  rc-table-row-level-0">
+                  <td
+                    class="title-a">
+                    <span
+                      class="rc-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    a2
+                  </td>
+                </tr>
+                <tr
+                  class="rc-table-row  rc-table-row-level-0">
+                  <td
+                    class="title-a">
+                    <span
+                      class="rc-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    a3
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="rc-table-scroll">
+      <span>
+        <div
+          class="rc-table-body"
+          style="overflow-x:auto;">
+          <table
+            class="rc-table-fixed">
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead
+              class="rc-table-thead">
+              <tr>
+                <th
+                  class="title-a"
+                  rowspan="2">
+                  表头A
+                </th>
+                <th
+                  class="title-b"
+                  colspan="2">
+                  表头B
+                </th>
+                <th
+                  class="title-e"
+                  rowspan="2">
+                  表头E
+                </th>
+              </tr>
+              <tr>
+                <th
+                  class="title-c">
+                  表头C
+                </th>
+                <th
+                  class="title-d">
+                  表头D
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="rc-table-tbody">
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="title-a">
+                  <span
+                    class="rc-table-row-indent indent-level-0"
+                    style="padding-left:0px;" />
+                  a1
+                </td>
+                <td
+                  class="title-c">
+                  b1
+                </td>
+                <td
+                  class="title-d">
+                  c1
+                </td>
+                <td
+                  class="title-e">
+                  d1
+                </td>
+              </tr>
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="title-a">
+                  <span
+                    class="rc-table-row-indent indent-level-0"
+                    style="padding-left:0px;" />
+                  a2
+                </td>
+                <td
+                  class="title-c">
+                  b2
+                </td>
+                <td
+                  class="title-d">
+                  c2
+                </td>
+                <td
+                  class="title-e">
+                  d2
+                </td>
+              </tr>
+              <tr
+                class="rc-table-row  rc-table-row-level-0">
+                <td
+                  class="title-a">
+                  <span
+                    class="rc-table-row-indent indent-level-0"
+                    style="padding-left:0px;" />
+                  a3
+                </td>
+                <td
+                  class="title-c">
+                  b3
+                </td>
+                <td
+                  class="title-d">
+                  c3
+                </td>
+                <td
+                  class="title-e">
+                  d3
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </span>
+    </div>
+    <div
+      class="rc-table-fixed-right">
+      <span>
+        <div
+          class="rc-table-body-outer">
+          <div
+            class="rc-table-body-inner">
+            <table
+              class="rc-table-fixed">
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="rc-table-thead">
+                <tr>
+                  <th
+                    class="title-e"
+                    rowspan="2">
+                    表头E
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="rc-table-tbody">
+                <tr
+                  class="rc-table-row  rc-table-row-level-0">
+                  <td
+                    class="title-e">
+                    d1
+                  </td>
+                </tr>
+                <tr
+                  class="rc-table-row  rc-table-row-level-0">
+                  <td
+                    class="title-e">
+                    d2
+                  </td>
+                </tr>
+                <tr
+                  class="rc-table-row  rc-table-row-level-0">
+                  <td
+                    class="title-e">
+                    d3
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+`;

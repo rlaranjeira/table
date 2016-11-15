@@ -1,23 +1,10 @@
-/* eslint-disable no-console,func-names,react/no-multi-comp */
-const expect = require('expect.js');
-const Table = require('../');
-const React = require('react');
-const ReactDOM = require('react-dom');
-const $ = require('jquery');
+/* eslint-disable no-undef */
+import React from 'react';
+import Table from '../';
+import { render } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
 
 describe('Table with grouping columns', () => {
-  let div;
-  let node;
-
-  beforeEach(() => {
-    div = document.createElement('div');
-    node = $(div);
-  });
-
-  afterEach(() => {
-    ReactDOM.unmountComponentAtNode(div);
-  });
-
   it('group columns', () => {
     /**
      * +---+---+---------------+-------+---+
@@ -64,31 +51,11 @@ describe('Table with grouping columns', () => {
       { key: '3', a: 'a3', b: 'b3', c: 'c3', d: 'd3', e: 'e3', f: 'f3', g: 'g3', h: 'h3', i: 'i3' },
     ];
 
-    ReactDOM.render(
-      <Table columns={columns} data={data} />,
-      div
+    const wrapper = render(
+      <Table columns={columns} data={data} />
     );
 
-    const cells = {
-      'title-a': ['4', undefined],
-      'title-b': ['4', undefined],
-      'title-c': [undefined, '4'],
-      'title-d': ['3', undefined],
-      'title-e': [undefined, '3'],
-      'title-f': ['2', undefined],
-      'title-g': [undefined, '2'],
-      'title-h': [undefined, undefined],
-      'title-i': [undefined, undefined],
-      'title-j': [undefined, '2'],
-      'title-k': ['3', undefined],
-      'title-l': ['3', undefined],
-      'title-m': ['4', undefined],
-    };
-    Object.keys(cells).forEach(className => {
-      const cell = cells[className];
-      expect(node.find(`.${className}`).attr('rowspan')).to.be(cell[0]);
-      expect(node.find(`.${className}`).attr('colspan')).to.be(cell[1]);
-    });
+    expect(renderToJson(wrapper)).toMatchSnapshot();
   });
 
   it('work with fixed columns', () => {
@@ -109,17 +76,10 @@ describe('Table with grouping columns', () => {
       { key: '3', a: 'a3', b: 'b3', c: 'c3', d: 'd3' },
     ];
 
-    ReactDOM.render(
-      <Table columns={columns} data={data} />,
-      div
+    const wrapper = render(
+      <Table columns={columns} data={data} />
     );
 
-    const fixedRows = node.find('.rc-table-fixed-left thead tr');
-    const titleA = node.find('.rc-table-fixed-left .title-a');
-    const titleE = node.find('.rc-table-fixed-right .title-e');
-
-    expect(fixedRows.length).to.be(1);
-    expect(titleA.attr('rowspan')).to.be('2');
-    expect(titleE.attr('rowspan')).to.be('2');
+    expect(renderToJson(wrapper)).toMatchSnapshot();
   });
 });
