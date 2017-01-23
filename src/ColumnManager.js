@@ -1,6 +1,4 @@
 import React from 'react';
-import Column from './Column';
-import ColumnGroup from './ColumnGroup';
 
 export default class ColumnManager {
   _cached = {}
@@ -70,9 +68,7 @@ export default class ColumnManager {
     return this._cache('groupedColumns', () => {
       const _groupColumns = (columns, currentRow = 0, parentColumn = {}, rows = []) => {
         // track how many rows we got
-        if (!~rows.indexOf(currentRow)) {
-          rows.push(currentRow);
-        }
+        rows[currentRow] = rows[currentRow] || [];
         const grouped = [];
         const setRowSpan = column => {
           const rowSpan = rows.length - currentRow;
@@ -86,6 +82,7 @@ export default class ColumnManager {
         };
         columns.forEach((column, index) => {
           const newColumn = { ...column };
+          rows[currentRow].push(newColumn);
           parentColumn.colSpan = parentColumn.colSpan || 0;
           if (newColumn.children && newColumn.children.length > 0) {
             newColumn.children = _groupColumns(newColumn.children, currentRow + 1, newColumn, rows);
@@ -93,9 +90,9 @@ export default class ColumnManager {
           } else {
             parentColumn.colSpan++;
           }
-          // update rowspan to all previous columns
-          for (let i = 0; i < index; ++i) {
-            setRowSpan(grouped[i]);
+          // update rowspan to all same row columns
+          for (let i = 0; i < rows[currentRow].length - 1; ++i) {
+            setRowSpan(rows[currentRow][i]);
           }
           // last column, update rowspan immediately
           if (index + 1 === columns.length) {
@@ -112,21 +109,19 @@ export default class ColumnManager {
   normalize(elements) {
     const columns = [];
     React.Children.forEach(elements, element => {
-      if (!this.isColumnElement(element)) return;
+      if (!React.isValidElement(element)) {
+        return;
+      }
       const column = { ...element.props };
       if (element.key) {
         column.key = element.key;
       }
-      if (element.type === ColumnGroup) {
+      if (element.type.isTableColumnGroup) {
         column.children = this.normalize(column.children);
       }
       columns.push(column);
     });
     return columns;
-  }
-
-  isColumnElement(element) {
-    return element && (element.type === Column || element.type === ColumnGroup);
   }
 
   reset(columns, elements) {

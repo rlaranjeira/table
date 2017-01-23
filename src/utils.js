@@ -1,3 +1,5 @@
+import warning from 'warning';
+
 let scrollbarWidth;
 
 // Measure scrollbar width for padding body during modal show/hide
@@ -31,7 +33,7 @@ export function measureScrollbar() {
 
 export function debounce(func, wait, immediate) {
   let timeout;
-  return function debounceFunc() {
+  function debounceFunc() {
     const context = this;
     const args = arguments;
     // https://fb.me/react-event-pooling
@@ -50,5 +52,20 @@ export function debounce(func, wait, immediate) {
     if (callNow) {
       func.apply(context, args);
     }
+  }
+  debounceFunc.cancel = function () {
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
   };
+  return debounceFunc;
+}
+
+const warned = {};
+export function warningOnce(condition, format, args) {
+  if (!warned[format]) {
+    warning(condition, format, args);
+    warned[format] = !condition;
+  }
 }
