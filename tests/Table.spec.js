@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-undef, no-console */
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
@@ -29,6 +29,13 @@ describe('Table', () => {
       className: 'test-class-name',
     }));
     expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('renders empty text correctly', () => {
+    const wrapper1 = render(createTable({ data: [], emptyText: 'No data' }));
+    const wrapper2 = render(createTable({ data: [], emptyText: () => 'No data' }));
+    expect(renderToJson(wrapper1)).toMatchSnapshot();
+    expect(renderToJson(wrapper2)).toMatchSnapshot();
   });
 
   it('renders without header', () => {
@@ -101,6 +108,80 @@ describe('Table', () => {
     it('renders scroll.y is a number', () => {
       const wrapper = render(createTable({ scroll: { y: 200 } }));
       expect(renderToJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('fire scroll event', () => {
+      const newColumns = [
+        { title: 'title1', dataIndex: 'a', key: 'a', width: 100, fixed: 'left' },
+        { title: 'title2', dataIndex: 'b', key: 'b' },
+        { title: 'title3', dataIndex: 'c', key: 'c' },
+        { title: 'title4', dataIndex: 'd', key: 'd', width: 100, fixed: 'right' },
+      ];
+      const newData = [
+        { a: '123', b: 'xxxxxxxx', c: 3, d: 'hehe', key: '1' },
+        { a: 'cdd', b: 'edd12221', c: 3, d: 'haha', key: '2' },
+      ];
+      const wrapper = mount(
+        <Table
+          columns={newColumns}
+          data={newData}
+          scroll={{
+            x: 200,
+            y: 200,
+          }}
+        />
+      );
+      const inst = wrapper.instance();
+      const headTable = wrapper.ref('headTable');
+      const bodyTable = wrapper.ref('bodyTable');
+      const fixedColumnsBodyLeft = wrapper.ref('fixedColumnsBodyLeft');
+      const fixedColumnsBodyRight = wrapper.ref('fixedColumnsBodyRight');
+
+      expect(inst.lastScrollLeft).toBe(undefined);
+
+      // fire headTable scroll.
+      headTable.getNode().scrollTop = 0;
+      headTable.getNode().scrollLeft = 20;
+      headTable.simulate('mouseover');
+      headTable.simulate('scroll');
+      expect(bodyTable.getNode().scrollLeft).toBe(20);
+      expect(fixedColumnsBodyLeft.getNode().scrollTop).toBe(0);
+      expect(fixedColumnsBodyRight.getNode().scrollTop).toBe(0);
+
+      expect(inst.lastScrollLeft).toBe(20);
+
+      // fire bodyTable scroll.
+      bodyTable.getNode().scrollTop = 10;
+      bodyTable.getNode().scrollLeft = 40;
+      bodyTable.simulate('mouseover');
+      bodyTable.simulate('scroll');
+      expect(headTable.getNode().scrollLeft).toBe(40);
+      expect(fixedColumnsBodyLeft.getNode().scrollTop).toBe(10);
+      expect(fixedColumnsBodyRight.getNode().scrollTop).toBe(10);
+
+      expect(inst.lastScrollLeft).toBe(40);
+
+      // fire fixedColumnsBodyLeft scroll.
+      fixedColumnsBodyLeft.getNode().scrollTop = 30;
+      fixedColumnsBodyLeft.simulate('mouseover');
+      fixedColumnsBodyLeft.simulate('scroll');
+      expect(headTable.getNode().scrollLeft).toBe(40);
+      expect(bodyTable.getNode().scrollLeft).toBe(40);
+      expect(bodyTable.getNode().scrollTop).toBe(30);
+      expect(fixedColumnsBodyRight.getNode().scrollTop).toBe(30);
+
+      expect(inst.lastScrollLeft).toBe(0);
+
+      // fire fixedColumnsBodyRight scroll.
+      fixedColumnsBodyRight.getNode().scrollTop = 15;
+      fixedColumnsBodyRight.simulate('mouseover');
+      fixedColumnsBodyRight.simulate('scroll');
+      expect(headTable.getNode().scrollLeft).toBe(40);
+      expect(bodyTable.getNode().scrollLeft).toBe(40);
+      expect(bodyTable.getNode().scrollTop).toBe(15);
+      expect(fixedColumnsBodyLeft.getNode().scrollTop).toBe(15);
+
+      expect(inst.lastScrollLeft).toBe(0);
     });
   });
 
@@ -296,5 +377,27 @@ describe('Table', () => {
       'Warning: Each record in table should have a unique `key` prop,' +
       'or set `rowKey` to an unique primary key.'
     );
+  });
+
+  describe('data change to empty', () => {
+    beforeAll(() => {
+      spyOn(Table.prototype, 'resetScrollX');
+    });
+
+    beforeEach(() => {
+      Table.prototype.resetScrollX.calls.reset();
+    });
+
+    it('reset scrollLeft when scroll.x is present', () => {
+      const wrapper = mount(createTable({ scroll: { x: 100 } }));
+      wrapper.setProps({ data: [] });
+      expect(Table.prototype.resetScrollX.calls.count()).toBe(1);
+    });
+
+    it('resetScrollX is not called when scroll.x is absent', () => {
+      const wrapper = mount(createTable());
+      wrapper.setProps({ data: [] });
+      expect(Table.prototype.resetScrollX.calls.count()).toBe(0);
+    });
   });
 });

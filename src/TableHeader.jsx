@@ -1,15 +1,18 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import shallowequal from 'shallowequal';
 
-export default React.createClass({
-  propTypes: {
+export default class TableHeader extends React.Component {
+  static propTypes = {
     prefixCls: PropTypes.string,
     rowStyle: PropTypes.object,
     rows: PropTypes.array,
-  },
+  }
+
   shouldComponentUpdate(nextProps) {
     return !shallowequal(nextProps, this.props);
-  },
+  }
+
   render() {
     const { prefixCls, rowStyle, rows } = this.props;
     return (
@@ -23,5 +26,5 @@ export default React.createClass({
         }
       </thead>
     );
-  },
-});
+  }
+}

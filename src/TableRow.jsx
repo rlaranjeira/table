@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TableCell from './TableCell';
 import ExpandIcon from './ExpandIcon';
 
-const TableRow = React.createClass({
-  propTypes: {
+export default class TableRow extends React.Component {
+  static propTypes = {
     onDestroy: PropTypes.func,
     onRowClick: PropTypes.func,
     onRowDoubleClick: PropTypes.func,
@@ -29,35 +30,34 @@ const TableRow = React.createClass({
     expandIconAsCell: PropTypes.bool,
     expandRowByClick: PropTypes.bool,
     store: PropTypes.object.isRequired,
-  },
+    expandedRow: PropTypes.bool,
+    fixed: PropTypes.bool,
+    rowKey: PropTypes.string,
+  }
 
-  getDefaultProps() {
-    return {
-      onRowClick() {},
-      onRowDoubleClick() {},
-      onDestroy() {},
-      expandIconColumnIndex: 0,
-      expandRowByClick: false,
-      onHover() {},
-    };
-  },
+  static defaultProps = {
+    onRowClick() {},
+    onRowDoubleClick() {},
+    onDestroy() {},
+    expandIconColumnIndex: 0,
+    expandRowByClick: false,
+    onHover() {},
+  }
 
-  getInitialState() {
-    return {
-      hovered: false,
-    };
-  },
+  state = {
+    hovered: false,
+    height: null,
+  }
 
   componentDidMount() {
-    const { store, hoverKey } = this.props;
+    const { store } = this.props;
+    this.pushHeight();
+    this.pullHeight();
     this.unsubscribe = store.subscribe(() => {
-      if (store.getState().currentHoverKey === hoverKey) {
-        this.setState({ hovered: true });
-      } else if (this.state.hovered === true) {
-        this.setState({ hovered: false });
-      }
+      this.setHover();
+      this.pullHeight();
     });
-  },
+  }
 
   componentWillUnmount() {
     const { record, onDestroy, index } = this.props;
@@ -65,9 +65,9 @@ const TableRow = React.createClass({
     if (this.unsubscribe) {
       this.unsubscribe();
     }
-  },
+  }
 
-  onRowClick(event) {
+  onRowClick = (event) => {
     const {
       record,
       index,
@@ -81,26 +81,55 @@ const TableRow = React.createClass({
       onExpand(!expanded, record, event, index);
     }
     onRowClick(record, index, event);
-  },
+  }
 
-  onRowDoubleClick(event) {
+  onRowDoubleClick = (event) => {
     const { record, index, onRowDoubleClick } = this.props;
     onRowDoubleClick(record, index, event);
-  },
+  }
 
-  onMouseEnter() {
+  onMouseEnter = () => {
     const { onHover, hoverKey } = this.props;
     onHover(true, hoverKey);
-  },
+  }
 
-  onMouseLeave() {
+  onMouseLeave = () => {
     const { onHover, hoverKey } = this.props;
     onHover(false, hoverKey);
-  },
+  }
+
+  setHover() {
+    const { store, hoverKey } = this.props;
+    const { currentHoverKey } = store.getState();
+    if (currentHoverKey === hoverKey) {
+      this.setState({ hovered: true });
+    } else if (this.state.hovered === true) {
+      this.setState({ hovered: false });
+    }
+  }
+
+
+  pullHeight() {
+    const { store, expandedRow, fixed, rowKey } = this.props;
+    const { expandedRowsHeight } = store.getState();
+    if (expandedRow && fixed && expandedRowsHeight[rowKey]) {
+      this.setState({ height: expandedRowsHeight[rowKey] });
+    }
+  }
+
+  pushHeight() {
+    const { store, expandedRow, fixed, rowKey } = this.props;
+    if (expandedRow && !fixed) {
+      const { expandedRowsHeight } = store.getState();
+      const height = this.trRef.getBoundingClientRect().height;
+      expandedRowsHeight[rowKey] = height;
+      store.setState({ expandedRowsHeight });
+    }
+  }
 
   render() {
     const {
-      prefixCls, columns, record, height, visible, index,
+      prefixCls, columns, record, visible, index,
       expandIconColumnIndex, expandIconAsCell, expanded, expandRowByClick,
       expandable, onExpand, needIndentSpaced, indent, indentSize,
     } = this.props;
@@ -150,6 +179,7 @@ const TableRow = React.createClass({
         />
       );
     }
+    const height = this.props.height || this.state.height;
     const style = { height };
     if (!visible) {
       style.display = 'none';
@@ -157,6 +187,7 @@ const TableRow = React.createClass({
 
     return (
       <tr
+        ref={(node) => (this.trRef = node)}
         onClick={this.onRowClick}
         onDoubleClick={this.onRowDoubleClick}
         onMouseEnter={this.onMouseEnter}
@@ -167,7 +198,5 @@ const TableRow = React.createClass({
         {cells}
       </tr>
     );
-  },
-});
-
-export default TableRow;
+  }
+}

@@ -27,6 +27,17 @@ describe('Table.expand', () => {
     expect(renderToJson(wrapper)).toMatchSnapshot();
   });
 
+  it('renders tree row correctly', () => {
+    const localData = [
+      { key: 0, name: 'Lucy', age: 27, children: [
+        { key: 2, name: 'Jim', age: 1 },
+      ] },
+      { key: 1, name: 'Jack', age: 28 },
+    ];
+    const wrapper = render(createTable({ data: localData }));
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
+
   it('renders expand icon as cell', () => {
     const wrapper = render(createTable({
       expandedRowRender,
@@ -120,6 +131,19 @@ describe('Table.expand', () => {
     }));
     wrapper.find('ExpandIcon').first().simulate('click');
     expect(onExpandedRowsChange).toBeCalledWith([0]);
+  });
+
+  it('fires onExpandedRowsChange event when row is removed', () => {
+    const onExpandedRowsChange = jest.fn();
+    const wrapper = mount(createTable({
+      defaultExpandAllRows: true,
+      expandedRowRender,
+      onExpandedRowsChange,
+    }));
+    wrapper.setProps({ data: [
+      { key: 1, name: 'Jack', age: 28 },
+    ] });
+    expect(onExpandedRowsChange).toBeCalledWith([1]);
   });
 
   it('expand row by click', () => {
