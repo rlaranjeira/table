@@ -1,6 +1,37 @@
 # History
 ----
 
+## 6.3.1 / 2018-08-02
+
+- Revert [112346](https://github.com/react-component/table/commit/112346ca75e8057771cf70fc8fde4bf5f63ce2e8) since too many edge cases.
+
+## 6.3.0 / 2018-08-02
+
+- Fixed header will read cell width from body.
+
+## 6.2.0 / 2018-05-09
+
+- Add `expanded` as the fourth parameter to `expandedRowRender`.
+
+## 6.0.0 / 2017-11-14
+
+- Refactor.
+- Allow override default examples.
+- Add Table[onRow] and column[onCell].
+- Add column[align].
+
+## 5.6.0 / 2017-08-27
+
+- Better empty data style for fixed-columns Table.
+
+## 5.5.0 / 2017-08-17
+
+- Add `onRowContextMenu`
+
+## 5.4.0 / 2017-05-23
+
+- Add `onRowMouseEnter`, `onRowMouseLeave`.
+
 ## 5.3.0 / 2017-04-06
 
 - `emptyText` support React.Node

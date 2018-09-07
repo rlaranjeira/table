@@ -1,21 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Table.fixedColumns renders correctly 1`] = `
 <div
-  class="rc-table rc-table-scroll-position-left">
+  class="rc-table rc-table-scroll-position-left"
+>
   <div
-    class="rc-table-content">
+    class="rc-table-content"
+  >
     <div
-      class="rc-table-scroll">
+      class="rc-table-scroll"
+    >
       <div
         class="rc-table-body"
-        style="overflow-x:auto;">
+        style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0)"
+      >
         <table
           class="rc-table-fixed"
-          style="width:1200px;">
+          style="width:1200px"
+        >
           <colgroup>
             <col
-              style="width:100px;min-width:100px;" />
+              style="width:100px;min-width:100px"
+            />
             <col
-              style="width:100px;min-width:100px;" />
+              style="width:100px;min-width:100px"
+            />
             <col />
             <col />
             <col />
@@ -26,549 +35,755 @@ exports[`Table.fixedColumns renders correctly 1`] = `
             <col />
             <col />
             <col
-              style="width:100px;min-width:100px;" />
+              style="width:100px;min-width:100px"
+            />
           </colgroup>
           <thead
-            class="rc-table-thead">
+            class="rc-table-thead"
+          >
             <tr>
               <th
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 title1
               </th>
               <th
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 title2
               </th>
               <th
-                class="">
+                class=""
+              >
                 title3
               </th>
               <th
-                class="">
+                class=""
+              >
                 title4
               </th>
               <th
-                class="">
+                class=""
+              >
                 title5
               </th>
               <th
-                class="">
+                class=""
+              >
                 title6
               </th>
               <th
-                class="">
+                class=""
+              >
                 title7
               </th>
               <th
-                class="">
+                class=""
+              >
                 title8
               </th>
               <th
-                class="">
+                class=""
+              >
                 title9
               </th>
               <th
-                class="">
+                class=""
+              >
                 title10
               </th>
               <th
-                class="">
+                class=""
+              >
                 title11
               </th>
               <th
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 title12
               </th>
             </tr>
           </thead>
           <tbody
-            class="rc-table-tbody">
+            class="rc-table-tbody"
+          >
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="1"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 123
               </td>
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 xxxxxxxx
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class=""
+              >
                 xxxxxxxx
               </td>
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 xxxxxxxx
               </td>
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="2"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 cdd
               </td>
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 edd12221
               </td>
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="3"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 133
               </td>
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="4"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 133
               </td>
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="5"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 133
               </td>
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="6"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 133
               </td>
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="7"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 133
               </td>
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="8"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 133
               </td>
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0">
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="9"
+            >
               <td
-                class="">
+                class="rc-table-fixed-columns-in-body"
+              >
                 <span
                   class="rc-table-row-indent indent-level-0"
-                  style="padding-left:0px;" />
+                  style="padding-left:0px"
+                />
                 133
               </td>
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
               <td
-                class="">
+                class=""
+              >
                 edd12221
               </td>
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class=""
+              />
               <td
-                class="" />
+                class="rc-table-fixed-columns-in-body"
+              />
             </tr>
           </tbody>
         </table>
       </div>
     </div>
     <div
-      class="rc-table-fixed-left">
+      class="rc-table-fixed-left"
+    >
       <div
-        class="rc-table-body-outer">
+        class="rc-table-body-outer"
+        style="-webkit-transform:translate3d (0, 0, 0)"
+      >
         <div
-          class="rc-table-body-inner">
+          class="rc-table-body-inner"
+        >
           <table
-            class="rc-table-fixed">
+            class="rc-table-fixed"
+          >
             <colgroup>
               <col
-                style="width:100px;min-width:100px;" />
+                style="width:100px;min-width:100px"
+              />
               <col
-                style="width:100px;min-width:100px;" />
+                style="width:100px;min-width:100px"
+              />
             </colgroup>
             <thead
-              class="rc-table-thead">
+              class="rc-table-thead"
+            >
               <tr>
                 <th
-                  class="">
+                  class=""
+                >
                   title1
                 </th>
                 <th
-                  class="">
+                  class=""
+                >
                   title2
                 </th>
               </tr>
             </thead>
             <tbody
-              class="rc-table-tbody">
+              class="rc-table-tbody"
+            >
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="1"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   123
                 </td>
                 <td
-                  class="">
+                  class=""
+                >
                   xxxxxxxx
                 </td>
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="2"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   cdd
                 </td>
                 <td
-                  class="">
+                  class=""
+                >
                   edd12221
                 </td>
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="3"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   133
                 </td>
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="4"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   133
                 </td>
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="5"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   133
                 </td>
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="6"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   133
                 </td>
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="7"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   133
                 </td>
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="8"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   133
                 </td>
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="9"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   <span
                     class="rc-table-row-indent indent-level-0"
-                    style="padding-left:0px;" />
+                    style="padding-left:0px"
+                  />
                   133
                 </td>
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
             </tbody>
           </table>
@@ -576,76 +791,112 @@ exports[`Table.fixedColumns renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="rc-table-fixed-right">
+      class="rc-table-fixed-right"
+    >
       <div
-        class="rc-table-body-outer">
+        class="rc-table-body-outer"
+        style="-webkit-transform:translate3d (0, 0, 0)"
+      >
         <div
-          class="rc-table-body-inner">
+          class="rc-table-body-inner"
+        >
           <table
-            class="rc-table-fixed">
+            class="rc-table-fixed"
+          >
             <colgroup>
               <col
-                style="width:100px;min-width:100px;" />
+                style="width:100px;min-width:100px"
+              />
             </colgroup>
             <thead
-              class="rc-table-thead">
+              class="rc-table-thead"
+            >
               <tr>
                 <th
-                  class="">
+                  class=""
+                >
                   title12
                 </th>
               </tr>
             </thead>
             <tbody
-              class="rc-table-tbody">
+              class="rc-table-tbody"
+            >
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="1"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   xxxxxxxx
                 </td>
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="2"
+              >
                 <td
-                  class="">
+                  class=""
+                >
                   edd12221
                 </td>
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="3"
+              >
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="4"
+              >
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="5"
+              >
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="6"
+              >
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="7"
+              >
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="8"
+              >
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
               <tr
-                class="rc-table-row  rc-table-row-level-0">
+                class="rc-table-row rc-table-row-level-0"
+                data-row-key="9"
+              >
                 <td
-                  class="" />
+                  class=""
+                />
               </tr>
             </tbody>
           </table>

@@ -1,9 +1,9 @@
 /* eslint-disable no-console,func-names,react/no-multi-comp */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Table = require('rc-table');
-require('rc-table/assets/index.less');
-require('rc-table/assets/bordered.less');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Table from 'rc-table';
+import 'rc-table/assets/index.less';
+import 'rc-table/assets/bordered.less';
 
 const columns = [
   {
@@ -68,33 +68,35 @@ const columns = [
   },
 ];
 
-
-const data = [{
-  key: '1',
-  name: '胡彦斌',
-  age: 32,
-  street: '拱墅区和睦街道',
-  building: 1,
-  number: 2033,
-  companyAddress: '西湖区湖底公园',
-  companyName: '湖底有限公司',
-  gender: '男',
-}, {
-  key: '2',
-  name: '胡彦祖',
-  age: 42,
-  street: '拱墅区和睦街道',
-  building: 3,
-  number: 2035,
-  companyAddress: '西湖区湖底公园',
-  companyName: '湖底有限公司',
-  gender: '男',
-}];
+const data = [
+  {
+    key: '1',
+    name: '胡彦斌',
+    age: 32,
+    street: '拱墅区和睦街道',
+    building: 1,
+    number: 2033,
+    companyAddress: '西湖区湖底公园',
+    companyName: '湖底有限公司',
+    gender: '男',
+  },
+  {
+    key: '2',
+    name: '胡彦祖',
+    age: 42,
+    street: '拱墅区和睦街道',
+    building: 3,
+    number: 2035,
+    companyAddress: '西湖区湖底公园',
+    companyName: '湖底有限公司',
+    gender: '男',
+  },
+];
 
 ReactDOM.render(
   <div>
     <h2>grouping columns</h2>
     <Table columns={columns} data={data} className="bordered" />
   </div>,
-  document.getElementById('__react-content')
+  document.getElementById('__react-content'),
 );

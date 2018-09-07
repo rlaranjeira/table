@@ -1,12 +1,12 @@
 /* eslint-disable no-console,func-names,react/no-multi-comp */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Table = require('rc-table');
-require('rc-table/assets/index.less');
-require('rc-dropdown/assets/index.css');
-require('rc-menu/assets/index.css');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Table from 'rc-table';
 import Menu, { Item, Divider } from 'rc-menu';
 import DropDown from 'rc-dropdown';
+import 'rc-table/assets/index.less';
+import 'rc-dropdown/assets/index.css';
+import 'rc-menu/assets/index.css';
 
 const data = [];
 for (let i = 0; i < 10; i++) {
@@ -18,35 +18,34 @@ for (let i = 0; i < 10; i++) {
   });
 }
 
-const Test = React.createClass({
-  getInitialState() {
-    this.filters = [];
-    return {
-      visible: false,
-    };
-  },
+class Demo extends React.Component {
+  state = {
+    visible: false,
+  };
 
-  handleVisibleChange(visible) {
+  filters = [];
+
+  handleVisibleChange = visible => {
     this.setState({ visible });
-  },
+  };
 
-  handleSelect(selected) {
+  handleSelect = selected => {
     this.filters.push(selected);
-  },
+  };
 
-  handleDeselect(key) {
+  handleDeselect = key => {
     const index = this.filters.indexOf(key);
     if (index !== -1) {
       this.filters.splice(index, 1);
     }
-  },
+  };
 
-  confirmFilter() {
+  confirmFilter = () => {
     console.log(this.filters.join(','));
     this.setState({
       visible: false,
     });
-  },
+  };
 
   render() {
     const menu = (
@@ -68,7 +67,9 @@ const Test = React.createClass({
               pointerEvents: 'visible',
             }}
             onClick={this.confirmFilter}
-          >确定</button>
+          >
+            确定
+          </button>
         </Item>
       </Menu>
     );
@@ -87,26 +88,23 @@ const Test = React.createClass({
               <a href="#">filter</a>
             </DropDown>
           </div>
-        ), key: 'a', dataIndex: 'a', width: 100,
+        ),
+        key: 'a',
+        dataIndex: 'a',
+        width: 100,
       },
       { title: 'title2', key: 'b', dataIndex: 'b', width: 100 },
       { title: 'title3', key: 'c', dataIndex: 'c', width: 200 },
     ];
 
-    return (
-      <Table
-        columns={columns}
-        data={data}
-        rowKey={record => record.key}
-      />
-    );
-  },
-});
+    return <Table columns={columns} data={data} rowKey={record => record.key} />;
+  }
+}
 
 ReactDOM.render(
   <div>
     <h2>use dropdown</h2>
-    <Test />
+    <Demo />
   </div>,
-  document.getElementById('__react-content')
+  document.getElementById('__react-content'),
 );

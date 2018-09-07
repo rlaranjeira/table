@@ -1,10 +1,12 @@
 /* eslint-disable no-console,func-names,react/no-multi-comp */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Table = require('rc-table');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Table from 'rc-table';
 import Animate from 'rc-animate';
-require('rc-table/assets/index.less');
-require('rc-table/assets/animation.less');
+import 'rc-table/assets/index.less';
+import 'rc-table/assets/animation.less';
+
+const AnimateBody = props => <Animate transitionName="move" component="tbody" {...props} />;
 
 class Demo extends React.Component {
   constructor(props) {
@@ -14,8 +16,14 @@ class Demo extends React.Component {
       { id: '123', title: 'title2', dataIndex: 'b', key: 'b', width: 100 },
       { title: 'title3', dataIndex: 'c', key: 'c', width: 200 },
       {
-        title: 'Operations', dataIndex: '', key: 'd', render: (text, record) =>
-        <a onClick={e => this.onDelete(record.key, e)} href="#">Delete</a>,
+        title: 'Operations',
+        dataIndex: '',
+        key: 'd',
+        render: (text, record) => (
+          <a onClick={e => this.onDelete(record.key, e)} href="#">
+            Delete
+          </a>
+        ),
       },
     ];
     this.state = {
@@ -45,14 +53,6 @@ class Demo extends React.Component {
     this.setState({ data });
   }
 
-  getBodyWrapper(body) {
-    return (
-      <Animate transitionName="move" component="tbody" className={body.props.className}>
-        {body.props.children}
-      </Animate>
-    );
-  }
-
   render() {
     return (
       <div style={{ margin: 20 }}>
@@ -61,13 +61,12 @@ class Demo extends React.Component {
         <Table
           columns={this.columns}
           data={this.state.data}
-          getBodyWrapper={this.getBodyWrapper}
+          components={{
+            body: { wrapper: AnimateBody },
+          }}
         />
       </div>
     );
   }
 }
-ReactDOM.render(
-  <Demo />,
-  document.getElementById('__react-content')
-);
+ReactDOM.render(<Demo />, document.getElementById('__react-content'));

@@ -1,8 +1,8 @@
 /* eslint-disable no-console,func-names,react/no-multi-comp */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Table = require('rc-table');
-require('rc-table/assets/index.less');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Table from 'rc-table';
+import 'rc-table/assets/index.less';
 
 const data = [];
 for (let i = 0; i < 10; i++) {
@@ -14,18 +14,16 @@ for (let i = 0; i < 10; i++) {
   });
 }
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      showBody: true,
-    };
-  },
+class Demo extends React.Component {
+  state = {
+    showBody: true,
+  };
 
-  toggleBody() {
+  toggleBody = () => {
     this.setState({
       showBody: !this.state.showBody,
     });
-  },
+  };
 
   render() {
     const columns = [
@@ -33,7 +31,11 @@ const Test = React.createClass({
       { id: '123', title: 'title2', dataIndex: 'b', key: 'b', width: 100 },
       { title: 'title3', key: 'c', dataIndex: 'c', width: 200 },
       {
-        title: <a onClick={this.toggleBody} href="#">{this.state.showBody ? '隐藏' : '显示'}体</a>,
+        title: (
+          <a onClick={this.toggleBody} href="#">
+            {this.state.showBody ? '隐藏' : '显示'}体
+          </a>
+        ),
         key: 'x',
         width: 200,
         render() {
@@ -52,13 +54,13 @@ const Test = React.createClass({
         }}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(
   <div>
     <h2>scroll body table</h2>
-    <Test/>
+    <Demo />
   </div>,
-  document.getElementById('__react-content')
+  document.getElementById('__react-content'),
 );

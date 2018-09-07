@@ -1,8 +1,8 @@
 /* eslint-disable no-console,func-names,react/no-multi-comp */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Table = require('rc-table');
-require('rc-table/assets/index.less');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Table from 'rc-table';
+import 'rc-table/assets/index.less';
 
 const columns = [
   { title: 'title1', dataIndex: 'a', key: 'a', width: 100, fixed: 'left' },
@@ -11,7 +11,17 @@ const columns = [
   { title: 'title4', dataIndex: 'b', key: 'd' },
   { title: 'title5', dataIndex: 'b', key: 'e' },
   { title: 'title6', dataIndex: 'b', key: 'f' },
-  { title: <div>title7<br /><br /><br />Hello world!</div>, dataIndex: 'b', key: 'g' },
+  {
+    title: (
+      <div>
+        title7<br />
+        <br />
+        <br />Hello world!
+      </div>
+    ),
+    dataIndex: 'b',
+    key: 'g',
+  },
   { title: 'title8', dataIndex: 'b', key: 'h' },
   { title: 'title9', dataIndex: 'b', key: 'i' },
   { title: 'title10', dataIndex: 'b', key: 'j' },
@@ -41,5 +51,6 @@ ReactDOM.render(
       scroll={{ x: 800 }}
       data={data}
     />
-  </div>
-, document.getElementById('__react-content'));
+  </div>,
+  document.getElementById('__react-content'),
+);

@@ -1,6 +1,6 @@
-/* eslint-disable no-console,func-names,react/no-multi-comp */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 import Table from 'rc-table';
 import 'rc-table/assets/index.less';
 
@@ -18,12 +18,28 @@ const columns = [
   },
 ];
 
-const data = [];
+const data = [
+  { a: '123', key: '1' },
+  { a: 'cdd', b: 'edd', key: '2' },
+  { a: '1333', c: 'eee', d: 2, key: '3' },
+];
+
+const BodyRow = styled.tr`
+  &:hover {
+    background: palevioletred !important;
+  }
+`;
+
+const components = {
+  body: {
+    row: BodyRow,
+  },
+};
 
 ReactDOM.render(
   <div>
-    <h2>simple table</h2>
-    <Table columns={columns} data={data} />
+    <h2>Integrate with styled-components</h2>
+    <Table columns={columns} data={data} components={components} />
   </div>,
   document.getElementById('__react-content'),
 );

@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash.get';
+import get from 'lodash/get';
+
+function isInvalidRenderCellText(text) {
+  return (
+    text &&
+    !React.isValidElement(text) &&
+    Object.prototype.toString.call(text) === '[object Object]'
+  );
+}
 
 export default class TableCell extends React.Component {
   static propTypes = {
@@ -11,23 +19,30 @@ export default class TableCell extends React.Component {
     indentSize: PropTypes.number,
     column: PropTypes.object,
     expandIcon: PropTypes.node,
-  }
+    component: PropTypes.any,
+  };
 
-  isInvalidRenderCellText(text) {
-    return text && !React.isValidElement(text) &&
-      Object.prototype.toString.call(text) === '[object Object]';
-  }
-
-  handleClick = (e) => {
-    const { record, column: { onCellClick } } = this.props;
+  handleClick = e => {
+    const {
+      record,
+      column: { onCellClick },
+    } = this.props;
     if (onCellClick) {
       onCellClick(record, e);
     }
-  }
+  };
 
   render() {
-    const { record, indentSize, prefixCls, indent,
-            index, expandIcon, column } = this.props;
+    const {
+      record,
+      indentSize,
+      prefixCls,
+      indent,
+      index,
+      expandIcon,
+      column,
+      component: BodyCell,
+    } = this.props;
     const { dataIndex, render, className = '' } = column;
 
     // We should return undefined if no dataIndex is specified, but in order to
@@ -40,22 +55,26 @@ export default class TableCell extends React.Component {
     } else {
       text = get(record, dataIndex);
     }
-    let tdProps;
+    let tdProps = {};
     let colSpan;
     let rowSpan;
 
     if (render) {
       text = render(text, record, index);
-      if (this.isInvalidRenderCellText(text)) {
-        tdProps = text.props || {};
+      if (isInvalidRenderCellText(text)) {
+        tdProps = text.props || tdProps;
         colSpan = tdProps.colSpan;
         rowSpan = tdProps.rowSpan;
         text = text.children;
       }
     }
 
+    if (column.onCell) {
+      tdProps = { ...tdProps, ...column.onCell(record) };
+    }
+
     // Fix https://github.com/ant-design/ant-design/issues/1202
-    if (this.isInvalidRenderCellText(text)) {
+    if (isInvalidRenderCellText(text)) {
       text = null;
     }
 
@@ -69,16 +88,17 @@ export default class TableCell extends React.Component {
     if (rowSpan === 0 || colSpan === 0) {
       return null;
     }
+
+    if (column.align) {
+      tdProps.style = { ...tdProps.style, textAlign: column.align };
+    }
+
     return (
-      <td
-        className={className}
-        {...tdProps}
-        onClick={this.handleClick}
-      >
+      <BodyCell className={className} onClick={this.handleClick} {...tdProps}>
         {indentText}
         {expandIcon}
         {text}
-      </td>
+      </BodyCell>
     );
   }
 }
